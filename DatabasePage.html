@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #recordList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .record-item {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <button onclick="goBack()">Back</button>
+    </div>
+  </header>
+  <h1>Records Page</h1>
+
+  <div class="button-container">
+    <button onclick="addRecord()">Add</button>
+    <button onclick="removeRecord()">Remove</button>
+    <button onclick="archiveRecords()">Archive</button>
+  </div>
+
+  <ul id="recordList"></ul>
+
+  <script>
+    var records = [];
+
+    function goBack() {
+        var outputElement = document.getElementById("output");
+      window.location.href = 'HomePage.html';
+    }
+
+    function addRecord() {
+      var recordId = records.length + 1;
+      var record = "Record " + recordId;
+      records.push(record);
+
+      updateRecordList();
+    }
+
+    function removeRecord() {
+      if (records.length > 0) {
+        records.pop();
+        updateRecordList();
+      } else {
+        alert("No records to remove.");
+      }
+    }
+
+    function archiveRecords() {
+      // In a real application, you would perform actions to archive records here
+      alert("Records archived!");
+      records = []; // Clear the records array after archiving
+      updateRecordList();
+    }
+
+    function updateRecordList() {
+      var recordListElement = document.getElementById("recordList");
+      recordListElement.innerHTML = '';
+
+      records.forEach(function(record) {
+        var listItem = document.createElement("li");
+        listItem.className = "record-item";
+        listItem.textContent = record;
+        recordListElement.appendChild(listItem);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    main {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .quantity-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .quantity-input {
+      width: 50px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .quantity-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+    }
+
+    .activity-panel {
+      margin-top: 20px;
+    }
+
+    .detailed-activity-panel {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button onclick="goBack()">Back</button>
+    <div>
+      <button onclick="saveInventory()">Save</button>
+      <button onclick="exportInventory()">Export</button>
+    </div>
+  </header>
+
+  <main>
+    <h1>Product Inventory</h1>
+
+    <div class="quantity-container">
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" class="quantity-input" value="50" readonly>
+      <div class="quantity-buttons">
+        <button onclick="decreaseQuantity()">-</button>
+        <button onclick="increaseQuantity()">+</button>
+      </div>
+    </div>
+
+    <div class="activity-panel">
+      <h2>Last Update:</h2>
+      <p id="lastUpdate">January 1, 2022</p>
+    </div>
+
+    <div class="detailed-activity-panel">
+      <h2>Detailed Activity:</h2>
+      <ul id="detailedActivityList">
+        <!-- Detailed activity items will be dynamically added here -->
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    function goBack() {
+      // Replace with actual back functionality, e.g., window.history.back()
+      alert('Back button clicked. Implement actual functionality.');
+    }
+
+    function saveInventory() {
+      // Replace with actual save functionality
+      alert('Inventory saved. Implement actual functionality.');
+    }
+
+    function exportInventory() {
+      // Replace with actual export functionality
+      alert('Inventory exported. Implement actual functionality.');
+    }
+
+    function decreaseQuantity() {
+      var quantityInput = document.getElementById("quantity");
+      var currentQuantity = parseInt(quantityInput.value, 10);
+      if (currentQuantity > 0) {
+        quantityInput.value = currentQuantity - 1;
+      }
+    }
+
+    function increaseQuantity() {
+      var quantityInput = document.getElementById("quantity");
+      var currentQuantity = parseInt(quantityInput.value, 10);
+      quantityInput.value = currentQuantity + 1;
+    }
+
+    // Simulating activity log updates
+    function updateActivityLog() {
+      var lastUpdateElement = document.getElementById("lastUpdate");
+      var now = new Date();
+      lastUpdateElement.textContent = now.toDateString() + " " + now.toLocaleTimeString();
+
+      var detailedActivityList = document.getElementById("detailedActivityList");
+      var activityItem = document.createElement("li");
+      activityItem.textContent = "Sold 5 products on " + now.toDateString();
+      detailedActivityList.appendChild(activityItem);
+    }
+
+    // Initial update for demonstration purposes
+    updateActivityLog();
+  </script>
+
+</body>
+</html>

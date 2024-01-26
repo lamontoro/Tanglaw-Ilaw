@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Main Content Styles */
+  main {
+    margin-top: 80px;
+    padding: 20px;
+  }
+  
+  /* Common Button Styles */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Records Page Styles */
+  #recordList {
+    margin-top: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .record-item {
+    display: inline-block;
+    width: 300px;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Swipe Button Styles */
+  #swipeButtons {
+    margin-top: 10px;
+  }
+  
+  .swipe-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .swipe-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Hamburger Menu Styles */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .menu a:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .menu {
+      display: flex;
+    }
+  }
+  

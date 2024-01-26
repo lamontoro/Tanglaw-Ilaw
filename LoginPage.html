@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Page Title</title>
+        <link rel="stylesheet" href="design.css">
+      </head>
+      
+<body>
+
+  <h1>Login Page</h1>
+
+  <div class="login-container">
+    <form>
+    <br>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    <br />
+    <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    <br />
+    <br>
+      <button type="button" onclick="login()">Login</button>
+    </form>
+    <br />
+    <div class="btn-container">
+      <button onclick="forgotPassword()">Forgot Password</button>
+      <button onclick="register()">Register</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+        var outputElement = document.getElementById("output");
+      window.location.href = 'HomePage.html';
+    }
+
+    function forgotPassword() {
+        var outputElement = document.getElementById("output");
+      window.location.href = 'LoginPage.html';
+    }
+
+    function register() {
+        var outputElement = document.getElementById("output");
+      window.location.href = 'Register.html';
+    }
+  </script>
+
+</body>
+</html>

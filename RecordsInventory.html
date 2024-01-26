@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Page Title</title>
+        <link rel="stylesheet" href="design.css">
+      </head>
+<body>
+
+  <header>
+    <div>
+      <button onclick="goBack()">Back</button>
+    </div>
+    <div>
+      <button onclick="saveRecords()">Save</button>
+      <button onclick="exportRecords()">Export</button>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <div class="menu" id="menu">
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Records Inventory</h1>
+
+    <div id="recordList"></div>
+
+    <div id="swipeButtons">
+      <button class="swipe-button" onclick="swipeRecords('left')">Swipe Left</button>
+      <button class="swipe-button" onclick="swipeRecords('right')">Swipe Right</button>
+    </div>
+  </main>
+
+  <script>
+    var records = [
+      { productId: '001', quantity: 10, price: 20.99 },
+      { productId: '002', quantity: 15, price: 30.50 },
+      { productId: '003', quantity: 8, price: 15.75 },
+      // Add more records as needed
+    ];
+    var currentIndex = 0;
+
+    function displayRecords() {
+      var recordListElement = document.getElementById("recordList");
+      recordListElement.innerHTML = '';
+
+      var currentRecord = records[currentIndex];
+      var recordItem = document.createElement("div");
+      recordItem.className = "record-item";
+      recordItem.textContent = `
+        Product ID: ${currentRecord.productId}
+        Quantity: ${currentRecord.quantity}
+        Price: $${currentRecord.price.toFixed(2)}
+      `;
+      recordListElement.appendChild(recordItem);
+    }
+
+    function swipeRecords(direction) {
+      if (direction === 'left' && currentIndex > 0) {
+        currentIndex--;
+      } else if (direction === 'right' && currentIndex < records.length - 1) {
+        currentIndex++;
+      }
+      displayRecords();
+    }
+
+    function goBack() {
+        var outputElement = document.getElementById("output");
+      window.location.href = 'HomePage.html';
+    }
+
+    function saveRecords() {
+      // Replace with actual save functionality
+      alert('Records saved. Implement actual functionality.');
+    }
+
+    function exportRecords() {
+      // Replace with actual export functionality
+      alert('Records exported. Implement actual functionality.');
+    }
+
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    // Initial display
+    displayRecords();
+  </script>
+
+</body>
+</html>

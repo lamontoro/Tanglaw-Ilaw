@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="design.css">
+  </head>
+<body>
+
+  <h1>Records Page</h1>
+
+  <div class="button-container">
+    <button onclick="addRecord()">Add</button>
+    <button onclick="removeRecord()">Remove</button>
+    <button onclick="archiveRecords()">Archive</button>
+  </div>
+
+  <ul id="recordList"></ul>
+
+  <script>
+    var records = [];
+
+    function addRecord() {
+      var recordId = records.length + 1;
+      var record = "Record " + recordId;
+      records.push(record);
+
+      updateRecordList();
+    }
+
+    function removeRecord() {
+      if (records.length > 0) {
+        records.pop();
+        updateRecordList();
+      } else {
+        alert("No records to remove.");
+      }
+    }
+
+    function archiveRecords() {
+      // In a real application, you would perform actions to archive records here
+      alert("Records archived!");
+      records = []; // Clear the records array after archiving
+      updateRecordList();
+    }
+
+    function updateRecordList() {
+      var recordListElement = document.getElementById("recordList");
+      recordListElement.innerHTML = '';
+
+      records.forEach(function(record) {
+        var listItem = document.createElement("li");
+        listItem.className = "record-item";
+        listItem.textContent = record;
+        recordListElement.appendChild(listItem);
+      });
+    }
+  </script>
+
+</body>
+</html>

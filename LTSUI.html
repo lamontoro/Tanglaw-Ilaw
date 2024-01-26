@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light Track System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    #output {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    #changeTextButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sample UI</h1>
+  
+  <button id="changeTextButton" onclick="changeText()">Change Text</button>
+  
+  <p id="output">Click the button to change this text.</p>
+
+  <script>
+    function changeText() {
+      var outputElement = document.getElementById("output");
+      outputElement.textContent = "Text changed!";
+    }
+  </script>
+
+</body>
+</html>
